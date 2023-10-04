@@ -152,8 +152,19 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 
+# model training logs
+logs/
+
 # If you are using macOS
 .DS_Store
+
+# Google Drive
+.tmp.driveupload
+.tmp.drivedownload
+
+# my experiements
+my_experiement.py
+
 
 # PyCharm
 #  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
