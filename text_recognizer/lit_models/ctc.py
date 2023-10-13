@@ -131,4 +131,4 @@ class CTCLitModel(BaseLitModel):  # pylint: disable=too-many-ancestors
             seq = [b for b, _g in itertools.groupby(argmax[i].tolist()) if b != self.blank_index][:max_length]
             for ii, char in enumerate(seq):
                 decoded[i, ii] = char
-        return decoded
+        return decoded.float()
