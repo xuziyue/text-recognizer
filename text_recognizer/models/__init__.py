@@ -12,4 +12,8 @@ from .line_cnn_lstm import LineCNNLSTM
 
 # Hide lines above until Lab 3
 
+# Hide lines below until Lab 4
+from .line_cnn_transformer import LineCNNTransformer
+
+# Hide lines above until Lab 4
 
