@@ -54,5 +54,7 @@ class TransformerLitModel(BaseLitModel):  # pylint: disable=too-many-ancestors
     def test_step(self, batch, batch_idx):  # pylint: disable=unused-argument
         x, y = batch
         pred = self.model.predict(x)
+        self.test_acc(pred, y)
+        self.log("test_acc", self.test_acc, on_step=False, on_epoch=True)
         self.test_cer(pred, y)
         self.log("test_cer", self.test_cer, on_step=False, on_epoch=True, prog_bar=True)
