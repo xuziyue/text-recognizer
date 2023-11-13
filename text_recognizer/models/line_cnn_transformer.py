@@ -57,6 +57,7 @@ class LineCNNTransformer(nn.Module):
         inverse_mapping = {val: ind for ind, val in enumerate(data_config["mapping"])}
         self.start_token = inverse_mapping["<S>"]
         self.padding_token = inverse_mapping["<P>"]
+        self.end_token = inverse_mapping["<E>"]
         self.max_output_length = data_config["output_dims"][0]
         self.args = vars(args) if args is not None else {}
 
@@ -152,7 +153,8 @@ class LineCNNTransformer(nn.Module):
             output = self.fc(output)  # (Sy, B, C)
             output = torch.argmax(output, dim=-1)  # (Sy, B)
             output_tokens[Sy] = output[-1:]  # Set the last output token
-            # TODO: stop decoding on the first '<P>' token (or better yet, the end token) to speed things up
+            if (output_tokens[Sy] == self.padding_token).all():
+                break
         return output_tokens.T  # (B, Sy)
 
     @staticmethod
