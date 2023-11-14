@@ -21,12 +21,6 @@ parameters:
     value: 8
   fc_dim:
     values: [512, 1024]
-  transformer_dim:
-    values: [128, 256]
-  transformer_nhead:
-    values: [4, 8]
-  transformer_layers:
-    values: [2, 4, 6]
   lr:
     values: [0.01, 0.001, 0.0003]
   max_epochs:
