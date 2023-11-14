@@ -1,4 +1,8 @@
 import pytorch_lightning as pl
+try:
+    import wandb
+except ModuleNotFoundError:
+    pass
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -15,7 +19,7 @@ class TransformerLitModel(pl.LightningModule):
     def __init__(self, args, model):
         super().__init__()
         self.model = model
-
+        self.mapping = self.model.data_config["mapping"]
         inverse_mapping = {val: ind for ind, val in enumerate(self.model.data_config["mapping"])}
         start_index = inverse_mapping["<S>"]
         padding_index = inverse_mapping["<P>"]
