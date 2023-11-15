@@ -128,7 +128,7 @@ def resize_image(image: Image.Image, scale_factor: int) -> Image.Image:
     """Resize image by scale factor."""
     if scale_factor == 1:
         return image
-    return image.resize((image.width // scale_factor, image.height // scale_factor), interpolation=Image.BILINEAR)
+    return image.resize((image.width // scale_factor, image.height // scale_factor), resample=Image.BILINEAR)
 
 
 def get_paragraph_crops_and_labels(iam: IAM, split: str) -> Tuple[Dict[str, Image.Image], Dict[str, str]]:
