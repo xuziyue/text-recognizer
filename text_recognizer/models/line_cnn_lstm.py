@@ -13,11 +13,7 @@ LSTM_DROPOUT = 0.2
 class LineCNNLSTM(nn.Module):
     """Process the line through a CNN and process the resulting sequence through LSTM layers."""
 
-    def __init__(
-        self,
-        data_config: Dict[str, Any],
-        args: argparse.Namespace = None,
-    ) -> None:
+    def __init__(self, data_config: Dict[str, Any], args: argparse.Namespace = None) -> None:
         super().__init__()
         self.data_config = data_config
         self.args = vars(args) if args is not None else {}

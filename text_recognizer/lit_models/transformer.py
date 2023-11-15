@@ -15,7 +15,7 @@ class TransformerLitModel(BaseLitModel):
     The module must take x, y as inputs, and have a special predict() method.
     """
 
-    def __init__(self, model, args = None):
+    def __init__(self, model, args=None):
         super().__init__(model, args)
 
         self.mapping = self.model.data_config["mapping"]

@@ -45,11 +45,7 @@ def generate_square_subsequent_mask(size: int):
 class LineCNNTransformer(nn.Module):
     """Process the line through a CNN and process the resulting sequence with a Transformer decoder"""
 
-    def __init__(
-        self,
-        data_config: Dict[str, Any],
-        args: argparse.Namespace = None,
-    ) -> None:
+    def __init__(self, data_config: Dict[str, Any], args: argparse.Namespace=None) -> None:
         super().__init__()
         self.data_config = data_config
         self.input_dims = data_config["input_dims"]

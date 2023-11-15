@@ -19,11 +19,7 @@ RESNET_DIM = 512  # hard-coded
 class ResnetTransformer(nn.Module):
     """Process the line through a Resnet and process the resulting sequence with a Transformer decoder"""
 
-    def __init__(
-        self,
-        data_config: Dict[str, Any],
-        args: argparse.Namespace = None,
-    ) -> None:
+    def __init__(self, data_config: Dict[str, Any], args: argparse.Namespace=None) -> None:
         super().__init__()
         self.data_config = data_config
         self.input_dims = data_config["input_dims"]

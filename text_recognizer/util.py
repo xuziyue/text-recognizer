@@ -3,7 +3,7 @@ from io import BytesIO
 from pathlib import Path
 from typing import Union
 from urllib.request import urlretrieve
-import base64
+# import base64
 import hashlib
 
 from PIL import Image

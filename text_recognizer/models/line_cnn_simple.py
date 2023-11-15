@@ -14,11 +14,7 @@ WINDOW_STRIDE = 28
 class LineCNNSimple(nn.Module):
     """LeNet based model that takes a line of width that is a multiple of CHAR_WIDTH."""
 
-    def __init__(
-        self,
-        data_config: Dict[str, Any],
-        args: argparse.Namespace = None,
-    ) -> None:
+    def __init__(self, data_config: Dict[str, Any], args: argparse.Namespace=None) -> None:
         super().__init__()
         self.args = vars(args) if args is not None else {}
 
