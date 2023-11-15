@@ -70,8 +70,10 @@ def main():
 
     text_recognizer = ParagraphTextRecognizer()
     pred_str = text_recognizer.predict(args.filename)
+    print("Result:")
     print("=========================================")
     print(pred_str)
+    print("=========================================")
 
 
 if __name__ == "__main__":
