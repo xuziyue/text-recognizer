@@ -156,6 +156,7 @@ def load_line_crops_and_labels(split: str, data_dirname: Path):
 
     crop_filenames = sorted((data_dirname / split).glob("*.png"), key=lambda filename: int(Path(filename).stem))
     crops = [util.read_image_pil(filename, grayscale=True) for filename in crop_filenames]
+    print(len(crops), len(labels))
     assert len(crops) == len(labels)
     return crops, labels
 
@@ -175,7 +176,7 @@ def get_transform(image_width, augment=False):
             # Add random stretching
             new_crop_width = int(new_crop_width * random.uniform(0.9, 1.1))
             new_crop_width = min(new_crop_width, image_width)
-        crop_resized = crop.resize((new_crop_width, new_crop_height), resample=Image.BILINEAR)
+        crop_resized = crop.resize((new_crop_width, new_crop_height), interpolation=Image.BILINEAR)
 
         # Embed in the image
         x = min(28, image_width - new_crop_width)
@@ -191,7 +192,7 @@ def get_transform(image_width, augment=False):
     if augment:
         transforms_list += [
             transforms.ColorJitter(brightness=(0.8, 1.6)),
-            transforms.RandomAffine(degrees=1, shear=(-30, 20), resample=Image.BILINEAR, fillcolor=0),
+            transforms.RandomAffine(degrees=1, shear=(-30, 20), interpolation=Image.BILINEAR, fill=0),
         ]
     transforms_list.append(transforms.ToTensor())
     return transforms.Compose(transforms_list)
