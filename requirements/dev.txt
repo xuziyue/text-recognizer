@@ -46,15 +46,13 @@ chardet==4.0.0
     # via
     #   -c requirements/prod.txt
     #   requests
-click==8.1.7
+click
     # via
     #   -c requirements/prod.txt
     #   black
     #   nltk
     #   safety
     #   wandb
-configparser==5.0.2
-    # via wandb
 cycler==0.10.0
     # via matplotlib
 decorator==5.0.5
@@ -64,7 +62,9 @@ decorator==5.0.5
 defusedxml==0.7.1
     # via nbconvert
 docker-pycreds==0.4.0
-    # via wandb
+    # via
+    #   -c requirements/prod.txt
+    #   wandb
 dparse==0.5.1
     # via safety
 editdistance==0.5.3
@@ -73,10 +73,13 @@ editdistance==0.5.3
     #   -r requirements/dev.in
 entrypoints==0.3
     # via nbconvert
-gitdb==4.0.7
-    # via gitpython
-gitpython==3.1.14
+gitdb
     # via
+    #   -c requirements/prod.txt
+    #   gitpython
+gitpython
+    # via
+    #   -c requirements/prod.txt
     #   bandit
     #   wandb
 idna==2.10
@@ -211,7 +214,9 @@ parso==0.8.2
 pathspec==0.8.1
     # via black
 pathtools==0.1.2
-    # via wandb
+    # via
+    #   -c requirements/prod.txt
+    #   wandb
 pbr==5.5.1
     # via stevedore
 pexpect==4.8.0
@@ -230,15 +235,19 @@ prometheus-client==0.10.0
     #   jupyter-server
     #   notebook
 promise==2.3
-    # via wandb
+    # via
+    #   -c requirements/prod.txt
+    #   wandb
 prompt-toolkit==3.0.18
     # via ipython
 protobuf==3.15.7
     # via
     #   -c requirements/prod.txt
     #   wandb
-psutil==5.8.0
-    # via wandb
+psutil==5.9.6
+    # via
+    #   -c requirements/prod.txt
+    #   wandb
 ptyprocess==0.7.0
     # via
     #   pexpect
@@ -270,7 +279,6 @@ python-dateutil==2.8.1
     # via
     #   jupyter-client
     #   matplotlib
-    #   wandb
 pytz==2021.1
     # via babel
 pyyaml==5.3.1
@@ -303,10 +311,18 @@ send2trash==1.5.0
     # via
     #   jupyter-server
     #   notebook
-sentry-sdk==1.0.0
-    # via wandb
-shortuuid==1.0.1
-    # via wandb
+sentry-sdk==1.9.0
+    # via
+    #   -c requirements/prod.txt
+    #   wandb
+setproctitle
+    # via
+    #   -c requirements/prod.txt
+    #   wandb
+shortuuid==1.0.11
+    # via
+    #   -c requirements/prod.txt
+    #   wandb
 six==1.15.0
     # via
     #   -c requirements/prod.txt
@@ -322,16 +338,16 @@ six==1.15.0
     #   python-dateutil
     #   traitlets
     #   wandb
-smmap==4.0.0
-    # via gitdb
+smmap
+    # via
+    #   -c requirements/prod.txt
+    #   gitdb
 sniffio==1.2.0
     # via anyio
 snowballstemmer==2.1.0
     # via pydocstyle
 stevedore==3.3.0
     # via bandit
-subprocess32==3.5.4
-    # via wandb
 terminado==0.9.4
     # via
     #   jupyter-server
@@ -383,8 +399,10 @@ urllib3==1.26.4
     #   -c requirements/prod.txt
     #   requests
     #   sentry-sdk
-wandb==0.10.24
-    # via -r requirements/dev.in
+wandb==0.13.5
+    # via
+    #   -c requirements/prod.txt
+    #   -r requirements/dev.in
 wcwidth==0.2.5
     # via prompt-toolkit
 webencodings==0.5.1

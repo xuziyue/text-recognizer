@@ -3,7 +3,7 @@ from io import BytesIO
 from pathlib import Path
 from typing import Union
 from urllib.request import urlretrieve
-# import base64
+import base64
 import hashlib
 
 from PIL import Image
@@ -31,6 +31,14 @@ def read_image_pil_file(image_file, grayscale=False) -> Image:
         return image
 
 
+def read_b64_image(b64_string, grayscale=False):  # pylint: disable=unused-argument
+    """Load base64-encoded images."""
+    try:
+        _, b64_data = b64_string.split(",")  # pylint: disable=unused-variable
+        image_file = BytesIO(base64.b64decode(b64_data))
+        return read_image_pil_file(image_file, grayscale)
+    except Exception as exception:
+        raise ValueError("Could not load image from b64 {}: {}".format(b64_string, exception)) from exception
 
 
 def compute_sha256(filename: Union[Path, str]):
